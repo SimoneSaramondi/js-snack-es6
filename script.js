@@ -3,12 +3,7 @@ Snack 1:
 Creare un array di oggetti:
 Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
 Stampare a schermo la bici con peso minore utilizzando destructuring e template literal
-
-Snack2
-Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti. Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0. Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
-Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 */
-
 
 //FIRST SNACK   
 let arrayBike = [
@@ -40,17 +35,67 @@ let arrayBike = [
 
 //console.log(arrayBike);
 let myWeigth = 100;
-let indice = 0;
+let index = 0;
 
 for(let i = 0; i < arrayBike.length; i++){
     if(arrayBike[i].weigth <= myWeigth){
         myWeigth = arrayBike[i].weigth;
-        indice = i;
+        index = i;
     }
 }
 
-const myBike = arrayBike[indice];
+const myBike = arrayBike[index];
 
 const {nameBike, weigth} = myBike;
 
 console.log(`La bici con il peso minore è ${nameBike} e il suo peso equivale a ${weigth} chili.`)
+
+/*
+Snack2
+Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli
+subiti. Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0. Generare numeri random
+al posto degli 0 nelle proprietà: Punti fatti e falli subiti. Infine usando la destrutturazione creiamo un nuovo
+array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+*/
+
+//SECOND SNACK
+const arrayTeam = [
+    { //[0]
+        nameTeam: "Brescia",
+        points: 0,
+        fouls: 0
+    },
+    { //[1]
+        nameTeam: "Verona",
+        points: 0,
+        fouls: 0
+    },
+    { //[2]
+        nameTeam: "Atalanta",
+        points: 0,
+        fouls: 0
+    },
+    { //[3]
+        nameTeam: "Milan",
+        points: 0,
+        fouls: 0
+    },
+]
+
+function random(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+for(let i = 0; i < arrayTeam.length; i++){
+    arrayTeam[i].points = random(1, 10);
+    arrayTeam[i].fouls = random(1, 5);
+}
+
+//console.log(arrayTeam)
+const newArrayTeam = [];
+
+for(let i = 0; i < arrayTeam.length; i++){
+    const{nameTeam, fouls} = arrayTeam[i];
+    newArrayTeam[i] = arrayTeam[i];
+}
+console.log(newArrayTeam);
