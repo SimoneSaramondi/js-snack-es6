@@ -148,7 +148,6 @@ const generateNewTeams = (teamList) =>{
     const newTeams = [];
     for(const thisTeam of teamList){
         const {nameTeam, fouls} = thisTeam;
-
         newTeams.push({
             nameTeam,
             fouls
@@ -156,5 +155,43 @@ const generateNewTeams = (teamList) =>{
     }
     return newTeams;
 }
+
 console.log(generateNewTeams(arrayTeam));
 
+/*
+Snack 3
+Scrivere una funzione che accetti tre argomenti, un array e due numeri 
+(a più piccolo di b). La funzione ritornerà un nuovo array con i valori che
+hanno la posizione compresa tra i due numeri. Usiamo i nuovi metodi degli array
+foreach o filter.
+*/
+
+function sublist(array, startIndex, endIndex){
+    array.filter(function(element, index){
+        if(index >= startIndex && index <= endIndex){
+            return true;
+        }else{
+            return false
+        }
+    });
+}
+
+function sublistForEach(array, startIndex, endIndex){
+    const result = [];
+    array.forEach((element, index) => {
+        if(index >= starIndex && index <= endIndex){
+            result.push(element);
+        }
+    });
+    return result;
+}
+
+var array = [5,6,2,8,4,9];
+var nuovoArray = sublist(array, 1, 3);
+console.log(nuovoArray);
+
+var nuovoArray2 = sublistForEach(array, 1, 3);
+
+
+console.log(nuovoArray);
+console.log(nuovoArray2);
