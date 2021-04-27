@@ -84,7 +84,7 @@ const foundlighterBike = findLighterBike(bicyclesList);
 
 function findLighterBike(arrayList){
 
-    let lighterBike = null;
+    let lighterBike = null; // Inizialmente lo segno vuoto
 
     for(let i = 0; i < arrayList.length; i++){
         const{name, weigth} = arrayList[i]; // estraggo direttamente le due proprietà
@@ -161,3 +161,50 @@ for(let {nameTeam: n, fouls: f} of arrayTeam){
 console.log(newArrayTeam);
 
 // ESERCIZIO IN CLASSE
+
+const arrayTeam = [
+    { //[0]
+        nameTeam: "Brescia",
+        points: 0,
+        fouls: 0
+    },
+    { //[1]
+        nameTeam: "Verona",
+        points: 0,
+        fouls: 0
+    },
+    { //[2]
+        nameTeam: "Atalanta",
+        points: 0,
+        fouls: 0
+    },
+    { //[3]
+        nameTeam: "Milan",
+        points: 0,
+        fouls: 0
+    },
+]
+
+function random(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+for(let i = 0; i < arrayTeam.length; i++){
+    arrayTeam[i].points = random(1, 10);
+    arrayTeam[i].fouls = random(1, 5);
+}
+
+const generateNewTeams = (teamList) =>{
+    const newTeams = [];
+    for(const thisTeam of teamList){
+        const {nome, falli_subiti} = thisTeam;
+
+        newTeams.push({
+            nome,
+            falli_subiti
+        })
+    }
+    return newTeams;
+}
+
+generateTeams
