@@ -50,6 +50,61 @@ const {nameBike, weigth} = myBike;
 
 console.log(`La bici con il peso minore è ${nameBike} e il suo peso equivale a ${weigth} chili.`)
 
+
+// ESERCIZIO IN CLASSE CORREZIONE (Secondo modo)
+
+const bicyclesList = [
+    { //[0]
+        name: "Bianchi",
+        weigth: 20
+    },
+    { //[1]
+        name: "Rossi",
+        weigth: 10
+    },
+    { //[2]
+        name: "Verdi",
+        weigth: 40
+    },
+    { //[3]
+        name: "Gialli",
+        weigth: 30
+    },
+    { //[4]
+        name: "Arancioni",
+        weigth: 8
+    },
+    { //[5]
+        name: "Blu",
+        weigth: 26
+    }
+];
+
+const foundlighterBike = findLighterBike(bicyclesList);
+
+function findLighterBike(arrayList){
+
+    let lighterBike = null;
+
+    for(let i = 0; i < arrayList.length; i++){
+        const{name, weigth} = arrayList[i]; // estraggo direttamente le due proprietà
+
+        if(!lighterBike || weigth < lighterBike.weigth){
+            lighterBike = { // Creo un nuovo oggetto
+                name,
+                weigth
+            }
+        }
+    }
+
+    return lighterBike;
+
+}
+
+console.log(foundlighterBike);
+
+
+
 /*
 Snack2
 Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli
@@ -93,9 +148,16 @@ for(let i = 0; i < arrayTeam.length; i++){
 
 //console.log(arrayTeam)
 const newArrayTeam = [];
+var i=0;
 
-for(let i = 0; i < arrayTeam.length; i++){
-    const{nameTeam, fouls} = arrayTeam[i];
-    newArrayTeam[i] = arrayTeam[i];
+//controllare con il push
+
+for(let {nameTeam: n, fouls: f} of arrayTeam){
+    newArrayTeam.nameTeam = n;
+    //newArrayTeam[i] = f;
+    i++;
+    //console.log(n , f);
 }
 console.log(newArrayTeam);
+
+// ESERCIZIO IN CLASSE
