@@ -103,8 +103,6 @@ function findLighterBike(arrayList){
 
 console.log(foundlighterBike);
 
-
-
 /*
 Snack2
 Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli
@@ -146,65 +144,17 @@ for(let i = 0; i < arrayTeam.length; i++){
     arrayTeam[i].fouls = random(1, 5);
 }
 
-//console.log(arrayTeam)
-const newArrayTeam = [];
-var i=0;
-
-//controllare con il push
-
-for(let {nameTeam: n, fouls: f} of arrayTeam){
-    newArrayTeam.nameTeam = n;
-    //newArrayTeam[i] = f;
-    i++;
-    //console.log(n , f);
-}
-console.log(newArrayTeam);
-
-// ESERCIZIO IN CLASSE
-
-const arrayTeam = [
-    { //[0]
-        nameTeam: "Brescia",
-        points: 0,
-        fouls: 0
-    },
-    { //[1]
-        nameTeam: "Verona",
-        points: 0,
-        fouls: 0
-    },
-    { //[2]
-        nameTeam: "Atalanta",
-        points: 0,
-        fouls: 0
-    },
-    { //[3]
-        nameTeam: "Milan",
-        points: 0,
-        fouls: 0
-    },
-]
-
-function random(min, max){
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-for(let i = 0; i < arrayTeam.length; i++){
-    arrayTeam[i].points = random(1, 10);
-    arrayTeam[i].fouls = random(1, 5);
-}
-
 const generateNewTeams = (teamList) =>{
     const newTeams = [];
     for(const thisTeam of teamList){
-        const {nome, falli_subiti} = thisTeam;
+        const {nameTeam, fouls} = thisTeam;
 
         newTeams.push({
-            nome,
-            falli_subiti
+            nameTeam,
+            fouls
         })
     }
     return newTeams;
 }
+console.log(generateNewTeams(arrayTeam));
 
-generateTeams
