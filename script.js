@@ -167,7 +167,7 @@ foreach o filter.
 */
 
 function sublist(array, startIndex, endIndex){
-    array.filter(function(element, index){
+    array.filter(function(index){
         if(index >= startIndex && index <= endIndex){
             return true;
         }else{
@@ -179,7 +179,7 @@ function sublist(array, startIndex, endIndex){
 function sublistForEach(array, startIndex, endIndex){
     const result = [];
     array.forEach((element, index) => {
-        if(index >= starIndex && index <= endIndex){
+        if(index >= startIndex && index <= endIndex){
             result.push(element);
         }
     });
@@ -187,8 +187,8 @@ function sublistForEach(array, startIndex, endIndex){
 }
 
 var array = [5,6,2,8,4,9];
+
 var nuovoArray = sublist(array, 1, 3);
-console.log(nuovoArray);
 
 var nuovoArray2 = sublistForEach(array, 1, 3);
 
